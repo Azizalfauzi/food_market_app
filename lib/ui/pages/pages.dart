@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:food_market_app/models/models.dart';
@@ -13,3 +15,4 @@ part 'signup_page.dart';
 part 'address_page.dart';
 part 'main_page.dart';
 part 'food_page.dart';
+part 'food_detail_page.dart';
