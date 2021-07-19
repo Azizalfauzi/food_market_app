@@ -4,18 +4,18 @@ class Food extends Equatable {
   final int? id;
   final String picturePath;
   final String name;
-  final String? description;
-  final String? ingredients;
-  final int? price;
+  final String description;
+  final String ingredients;
+  final int price;
   final double rate;
 
   Food(
       {this.id,
       this.picturePath = "",
       this.name = "",
-      this.description,
-      this.ingredients,
-      this.price,
+      this.description = "",
+      this.ingredients = "",
+      this.price = 0,
       this.rate = 0});
 
   @override

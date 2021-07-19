@@ -7,7 +7,7 @@ class Transaction extends Equatable {
   final Food? food;
   final int quantity;
   final int total;
-  final DateTime? dateTime;
+  final DateTime dateTime;
   final TransactionStatus? status;
   final User? user;
 
@@ -35,7 +35,7 @@ class Transaction extends Equatable {
     this.food,
     this.quantity = 0,
     this.total = 0,
-    this.dateTime,
+    required this.dateTime,
     this.status,
     this.user,
   });
@@ -56,7 +56,7 @@ List<Transaction> mockTransaction = [
     id: 1,
     food: mockFoods[0],
     quantity: 3,
-    total: (mockFoods[0].price! * 5 * 1.1).round() + 50000,
+    total: (mockFoods[0].price * 5 * 1.1).round() + 50000,
     dateTime: DateTime.now(),
     status: TransactionStatus.deliver,
     user: mockUser,
@@ -65,9 +65,9 @@ List<Transaction> mockTransaction = [
     id: 2,
     food: mockFoods[1],
     quantity: 3,
-    total: (mockFoods[0].price! * 2 * 1.1).round() + 50000,
+    total: (mockFoods[0].price * 2 * 1.1).round() + 50000,
     dateTime: DateTime.now(),
-    status: TransactionStatus.deliver,
+    status: TransactionStatus.canceled,
     user: mockUser,
   ),
 ];

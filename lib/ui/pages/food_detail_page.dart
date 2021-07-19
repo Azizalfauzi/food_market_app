@@ -76,6 +76,7 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
                   color: Colors.white,
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -83,9 +84,12 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              widget.transaction!.food!.name,
-                              style: blackFontStyle2,
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width - 134,
+                              child: Text(
+                                widget.transaction!.food!.name,
+                                style: blackFontStyle2,
+                              ),
                             ),
                             SizedBox(
                               height: 6,
@@ -138,14 +142,79 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
                                   ),
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ],
                     ),
+                    Container(
+                      margin: EdgeInsets.fromLTRB(0, 14, 0, 16),
+                      child: Text(
+                        widget.transaction!.food!.description,
+                        style: greyTextFont,
+                      ),
+                    ),
+                    Text(
+                      'Ingredient',
+                      style: blackFontStyle3,
+                    ),
+                    Container(
+                      margin: EdgeInsets.fromLTRB(0, 4, 0, 41),
+                      child: Text(
+                        widget.transaction!.food!.ingredients,
+                        style: greyTextFont,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Total Price',
+                              style: greyTextFont.copyWith(fontSize: 13),
+                            ),
+                            Text(
+                              NumberFormat.currency(
+                                      locale: 'id-ID',
+                                      symbol: 'IDR ',
+                                      decimalDigits: 0)
+                                  .format(quantity *
+                                      widget.transaction!.food!.price),
+                              style: blackFontStyle2.copyWith(fontSize: 18),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 163,
+                          height: 45,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(mainColor),
+                              shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  side: BorderSide.none,
+                                ),
+                              ),
+                            ),
+                            child: Text(
+                              'Order Now',
+                              style: GoogleFonts.poppins().copyWith(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          ),
+                        )
+                      ],
+                    )
                   ],
                 ),
-              )
+              ),
             ],
           )),
         ],
